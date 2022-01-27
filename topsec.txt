@@ -1,0 +1,59 @@
+			<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-lg-3">
+							<div class="">
+							<h3>
+							<font  style="color: #17a2b8;">
+								Pulaski Method
+							</font>
+							<br>
+							<font style="color: #ed8e82;">
+								Dog Training
+							</font>
+							</h3>
+								
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="d-flex justify-content-center">
+								<div class="media header-media">
+									<div class="media-body">
+										<!-- <h4> email me
+										</h4>
+										<p style="color: #ed8e82;">
+											<b>Dog Training</b>
+										</p> -->
+									</div>
+								</div>
+
+								<div class="media header-media">
+									<div class="media-body">
+										<h4>
+											working hours
+										</h4>
+										<p>
+											7:00am - 7:00pm
+										</p>
+									</div>
+								</div>
+
+								<div class="media header-media">
+									<div class="media-body">
+										<h4>
+											call me
+										</h4>
+										<p>
+											<span id="phheader"></span>
+										</p>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="col-lg-3 text-right">
+							<!-- <a href="#" class="btn btn-maincolor">book training</a> -->
+						</div>
+
+					</div>
+				</div>
