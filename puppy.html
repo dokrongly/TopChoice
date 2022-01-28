@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-<title>Pulaski Method Dog Training</title>
+<title id="title"></title>
 <meta charset="utf-8">
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,10 @@
 <script src="js/vendor/respond.min.js"></script>
 <script src="js/vendor/jquery-1.12.4.min.js"></script>
 <![endif]-->
-
+<style>
+  topColor {color: #17a2b8;}
+  bottomColor {color: #ed8e82;}
+</style>
 </head>
 
 <body>
@@ -81,15 +84,15 @@
 <div class="row align-items-center">
 <div class="col-lg-3">
 <div class="">
-<h3>
-<font  style="color: #17a2b8;">
-Pulaski Method
-</font>
-<br>
-<font style="color: #ed8e82;">
-Dog Training
-</font>
-</h3>
+  <h3>
+    <span class="topColor" id="methodTop">
+      
+    </span>
+    <br>
+    <span class="bottomColor">
+      Dog Training
+    </span>
+    </h3>
 
 </div>
 </div>
@@ -147,7 +150,7 @@ call me
 <a href="./" class="logo logo-ds">
 <!-- <img src="images/logo_ds.png" alt="img"> -->
 <h4 style="color: #FFFFFF; margin-right: 0;">
-Pulaski Method<br>Dog Training
+  <span id=methodTop2></span>
 </h4>
 
 </a>
@@ -221,14 +224,9 @@ Pulaski Method<br>Dog Training
 </li>
 </ul>
 <div class="widget widget_archive mb-60" style="margin-top: 10%;">
-<h3 class="widget-title mb-20">What is the Pulaski Method?</h3>
+<h3 class="widget-title mb-20"><span id="methodMid"></span></h3>
 <p style="font-size: 0.85em; color: #000000;">
-Pulaski Method training is based on the concept that high energy behaviors
-(Fear, Aggression, Hyperactivity) are caused by the dog stimulating the production of Adrenaline and other high energy chemicals. On the other hand, CALM DOGS
-are under the influence of Serotonin and other low energy chemicals.  
-<br><br>Our training uses no chemicals or drugs.  The TRAINING PROCESS gets dogs out of high energy states of mind and into calm states of mind.
-<br><br>This concept of brain chemical reduction and stimulation (through training, not drugs) makes the Pulaski Method fundamentally different from other
-training methods. Through advanced training protocols, leadership and communication with the dog we show you how to change your dog's energy state instantly for calm, controlled behavior.
+  <span id="describe3"></span>
 </p>
 </div>
 </div>
@@ -408,14 +406,33 @@ emailContainer.appendChild(e);
       jQuery.get('svcarea.txt', function(sadata) {
     saElement.innerHTML = sadata;
 });
-      }    
-     
-      function setPage(){
-      setCopyrightYear();
-      setPhoneNumber();
-      setEmail();
-      setSvcArea();
-      }
+      } 
+		
+		function setMethod(){
+			
+			var meTitle = document.getElementById("title");
+			var meElement = document.getElementById("methodTop");
+			var meElement2 = document.getElementById("methodTop2");
+			var meElement3 = document.getElementById("methodMid");
+			var meElement4 = document.getElementById("describe3");
+			jQuery.get('method.txt', function(medata) {
+				meTitle.innerHTML = medata + "Method Dog Training";
+				meElement.innerHTML = medata + "Method";
+				meElement2.innerHTML = medata + "Method Dog Training";
+				meElement3.innerHTML = "What is " + medata + "Method?";
+	   	});
+      jQuery.get('description3.txt', function(d3data) {
+				meElement4.innerHTML = d3data;
+	   	});
+		}
+		
+		function setPage(){
+			setCopyrightYear();
+			setPhoneNumber();
+			setEmail();
+			setSvcArea();
+			setMethod();
+		}
      
       window.onload = setPage();
 
