@@ -381,15 +381,15 @@
 	</div><!-- eof #canvas -->
 
 
-<script src="js/compressed.js"></script>
+	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
 	<script> 
      		
      		function setCopyrightYear(){
      			
-     			var MessageElement = document.getElementById("copyright_year");
-     			jQuery.get('copyright.txt', function(data) {
-    				MessageElement.innerHTML = data;
+     			var crElement = document.getElementById("copyright_year");
+     			jQuery.get('copyright.txt', function(crdata) {
+    				crElement.innerHTML = crdata;
 			});
      		}
      		
@@ -400,8 +400,8 @@
      			var PhoneNav = document.getElementById("phNav");
      			var a1 = document.createElement('a');
      				a1.setAttribute('class', 'btn btn-maincolor');
-			var a2 = document.createElement('a');
-				a2.setAttribute('class', 'btn btn-outline-maincolor');
+				var a2 = document.createElement('a');
+					a2.setAttribute('class', 'btn btn-outline-maincolor');
     				a2.href = 'services.html';
     				a2.innerText = 'More Details';
     			 
@@ -412,31 +412,32 @@
     				PhoneNav.innerHTML = phdata;
     				a1.href = shortPh;
     				a1.innerText = shortPh;
-			});
+				});
 			
-			var container1 = document.getElementById('layer1');
-    				container1.appendChild(a1);
-    				container1.appendChild(a2);
+				var container1 = document.getElementById('layer1');
+    			container1.appendChild(a1);
+    			container1.appendChild(a2);
      		}
      		
      		function setEmail(){
      			
-     			var MessageElement = document.getElementById("svcArea");
-     			var e = document.createElement('a');
-     			jQuery.get('email.txt', function(data) {
-    				MessageElement.innerHTML = data;
-    				e.href = data;
-    				e.innerText = data;
-			});
-			var emailContainer = document.getElementById('emladdr');
+     			/* var MessageElement = document.getElementById("svcArea"); */
+     			var emailContainer = document.getElementById('emladdr');
+				var e = document.createElement('a');
+     			jQuery.get('email.txt', function(emldata) {
+    				emailContainer.innerHTML = emldata;
+    				e.href = emldata;
+    				e.innerText = emldata;
+				});
+			
 				emailContainer.appendChild(e);
      		} 
      		
      		function setSvcArea(){
      			
-     			var MessageElement = document.getElementById("svcArea");
-     			jQuery.get('svcarea.txt', function(data) {
-    				MessageElement.innerHTML = data;
+     			var saElement = document.getElementById("svcArea");
+     			jQuery.get('svcarea.txt', function(sadata) {
+    				saElement.innerHTML = sadata;
 			});
      		}     		
      		
