@@ -215,7 +215,7 @@
 									<font style="font-size: 0.65em !important;">Photo by <a href="https://unsplash.com/@hendoo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hendo Wang</a> on <a href="https://unsplash.com/s/photos/cute-puppy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></font>
   
 									<div class="media-links">
-										<a class="abs-link" title="" href="method.html"></a>
+										<a class="abs-link" title="" href="puppy.html"></a>
 									</div>
 								</div>
 								<div class="item-content ms ls">
@@ -225,7 +225,7 @@
 									<p style="line-height: 1.15;">
 										You can get relief from the strain of your new puppy's behaviors - and you can get it now. Even if your puppy is only 8 or 10 weeks old I can help.
 									</p>
-									<a href="method.html" class="more">$375<br>more details</a>
+									<a href="puppy.html" class="more">$375<br>more details</a>
 									<br>Ready to call? <span class="more" id="svcph1"></span>
 								</div>
 							</div>
@@ -236,7 +236,7 @@
 								<div class="item-media">
 									<img src="images/inhomePriced.jpg" alt="img">
 									<div class="media-links">
-										<a class="abs-link" title="" href="method.html"></a>
+										<a class="abs-link" title="" href="inhome.html"></a>
 									</div>
 								</div>
 								<div class="item-content ls ms">
@@ -247,7 +247,7 @@
 										  <font style="font-size: 0.92em !important;"> My unique method makes dogs happier, more balanced and better behaved. GUARANTEED! If I can't transform your dog on the very first visit then I won't charge a penny!
 										  </font>
 									</p>
-									<a href="method.html" class="more">$375<br>more details</a>
+									<a href="inhome.html" class="more">$375<br>more details</a>
 									<br>Ready to call? <span class="more" id="svcph2"></span>
 								</div>
 							</div>
@@ -258,7 +258,7 @@
 								<div class="item-media">
 									<img src="images/virtualPriced.png" alt="img">
 									<div class="media-links">
-										<a class="abs-link" title="" href="method.html"></a>
+										<a class="abs-link" title="" href="virtual.html"></a>
 									</div>
 								</div>
 								<div class="item-content ls ms">
@@ -268,7 +268,7 @@
 									<p>
 										Virtual training is highly effective in solving behavioral problems such as jumping, barking and play biting.
 									</p>
-									<a href="method.html" class="more">$295<br> more details</a>
+									<a href="virtual.html" class="more">$295<br> more details</a>
 									<br>Ready to call? <span class="more" id="svcph3"></span>
 								</div>
 							</div>
@@ -415,64 +415,72 @@
 	<script src="js/main.js"></script>
 	<script> 
      		
-     		function setCopyrightYear(){
-     			
-     			var MessageElement = document.getElementById("copyright_year");
-     			jQuery.get('copyright.txt', function(data) {
-    				MessageElement.innerHTML = data;
-			});
-     		}
-     		
-     		function setPhoneNumber(){
-     			
-     			var PhoneHeader = document.getElementById("phheader");
-     			var PhoneFooter = document.getElementById("phfooter");
-     			var PhoneNav = document.getElementById("phNav");
-     			var PhoneSvc1 = document.getElementById("svcph1");
-     			var PhoneSvc2 = document.getElementById("svcph2");
-     			var PhoneSvc3 = document.getElementById("svcph3");
-     			jQuery.get('phone.txt', function(phdata) {
-    				PhoneHeader.innerHTML = phdata;
-    				PhoneFooter.innerHTML = phdata;
-    				PhoneNav.innerHTML = phdata;
-    				PhoneSvc1.innerHTML = phdata;
-    				PhoneSvc2.innerHTML = phdata;
-    				PhoneSvc3.innerHTML = phdata;
-			});
-     		}
-     		
-     		function setEmail(){
-     			
-     			var MessageElement = document.getElementById("svcArea");
-     			var e = document.createElement('a');
-     			jQuery.get('email.txt', function(data) {
-    				MessageElement.innerHTML = data;
-    				e.href = data;
-    				e.innerText = data;
-			});
-			var emailContainer = document.getElementById('emladdr');
-				emailContainer.appendChild(e);
-     		} 
-     		
-     		
-     		function setSvcArea(){
-     			
-     			var MessageElement = document.getElementById("svcArea");
-     			jQuery.get('svcarea.txt', function(data) {
-    				MessageElement.innerHTML = data;
-			});
-     		}
-     		
-     		function setPage(){
-     			setCopyrightYear();
-     			setPhoneNumber();
-     			setEmail();
-     			setSvcArea();
-     		}
-     		
-     		window.onload = setPage();
+		function setCopyrightYear(){
+			
+			var crElement = document.getElementById("copyright_year");
+			jQuery.get('copyright.txt', function(crdata) {
+			   crElement.innerHTML = crdata;
+	   });
+		}
 		
-   	</script>
+		function setPhoneNumber(){
+			
+			var PhoneHeader = document.getElementById("phheader");
+			var PhoneFooter = document.getElementById("phfooter");
+			var PhoneNav = document.getElementById("phNav");
+			var a1 = document.createElement('a');
+				a1.setAttribute('class', 'btn btn-maincolor');
+		   var a2 = document.createElement('a');
+			   a2.setAttribute('class', 'btn btn-outline-maincolor');
+			   a2.href = 'services.html';
+			   a2.innerText = 'More Details';
+			
+			jQuery.get('phone.txt', function(phdata) {
+				let shortPh = phdata.substring(8, 22);
+			   PhoneHeader.innerHTML = phdata;
+			   PhoneFooter.innerHTML = phdata;
+			   PhoneNav.innerHTML = phdata;
+			   a1.href = shortPh;
+			   a1.innerText = shortPh;
+		   });
+	   
+		   var container1 = document.getElementById('layer1');
+		   container1.appendChild(a1);
+		   container1.appendChild(a2);
+		}
+		
+		function setEmail(){
+			
+			/* var MessageElement = document.getElementById("svcArea"); */
+			var emailContainer = document.getElementById('emladdr');
+		   var e = document.createElement('a');
+			jQuery.get('email.txt', function(emldata) {
+			   emailContainer.innerHTML = emldata;
+			   e.href = emldata;
+			   e.innerText = emldata;
+		   });
+	   
+		   emailContainer.appendChild(e);
+		} 
+		
+		function setSvcArea(){
+			
+			var saElement = document.getElementById("svcArea");
+			jQuery.get('svcarea.txt', function(sadata) {
+			   saElement.innerHTML = sadata;
+	   });
+		}     		
+		
+		function setPage(){
+			setCopyrightYear();
+			setPhoneNumber();
+			setEmail();
+			setSvcArea();
+		}
+		
+		window.onload = setPage();
+   
+  </script>
 
 
 </body>

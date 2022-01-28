@@ -363,57 +363,72 @@ In-Home dog training and Virtual training both come with the guarantee that if I
 	<script src="js/main.js"></script>
 	<script> 
      		
-     		function setCopyrightYear(){
-     			
-     			var MessageElement = document.getElementById("copyright_year");
-     			jQuery.get('copyright.txt', function(data) {
-    				MessageElement.innerHTML = data;
-			});
-     		}
-     		
-     		function setPhoneNumber(){
-     			
-     			var PhoneHeader = document.getElementById("phheader");
-     			var PhoneFooter = document.getElementById("phfooter");
-     			var PhoneNav = document.getElementById("phNav");
-     			jQuery.get('phone.txt', function(phdata) {
-    				PhoneHeader.innerHTML = phdata;
-    				PhoneFooter.innerHTML = phdata;
-    				PhoneNav.innerHTML = phdata;
-			});
-     		}
-     		
-     		function setEmail(){
-     			
-     			var MessageElement = document.getElementById("svcArea");
-     			var e = document.createElement('a');
-     			jQuery.get('email.txt', function(data) {
-    				MessageElement.innerHTML = data;
-    				e.href = data;
-    				e.innerText = data;
-			});
-			var emailContainer = document.getElementById('emladdr');
-				emailContainer.appendChild(e);
-     		} 
-     		
-     		function setSvcArea(){
-     			
-     			var MessageElement = document.getElementById("svcArea");
-     			jQuery.get('svcarea.txt', function(data) {
-    				MessageElement.innerHTML = data;
-			});
-     		}
-     		
-     		function setPage(){
-     			setCopyrightYear();
-     			setPhoneNumber();
-     			setEmail();
-     			setSvcArea();
-     		}
-     		
-     		window.onload = setPage();
+		function setCopyrightYear(){
+			
+			var crElement = document.getElementById("copyright_year");
+			jQuery.get('copyright.txt', function(crdata) {
+			   crElement.innerHTML = crdata;
+	   });
+		}
 		
-   	</script>
+		function setPhoneNumber(){
+			
+			var PhoneHeader = document.getElementById("phheader");
+			var PhoneFooter = document.getElementById("phfooter");
+			var PhoneNav = document.getElementById("phNav");
+			var a1 = document.createElement('a');
+				a1.setAttribute('class', 'btn btn-maincolor');
+		   var a2 = document.createElement('a');
+			   a2.setAttribute('class', 'btn btn-outline-maincolor');
+			   a2.href = 'services.html';
+			   a2.innerText = 'More Details';
+			
+			jQuery.get('phone.txt', function(phdata) {
+				let shortPh = phdata.substring(8, 22);
+			   PhoneHeader.innerHTML = phdata;
+			   PhoneFooter.innerHTML = phdata;
+			   PhoneNav.innerHTML = phdata;
+			   a1.href = shortPh;
+			   a1.innerText = shortPh;
+		   });
+	   
+		   var container1 = document.getElementById('layer1');
+		   container1.appendChild(a1);
+		   container1.appendChild(a2);
+		}
+		
+		function setEmail(){
+			
+			/* var MessageElement = document.getElementById("svcArea"); */
+			var emailContainer = document.getElementById('emladdr');
+		   var e = document.createElement('a');
+			jQuery.get('email.txt', function(emldata) {
+			   emailContainer.innerHTML = emldata;
+			   e.href = emldata;
+			   e.innerText = emldata;
+		   });
+	   
+		   emailContainer.appendChild(e);
+		} 
+		
+		function setSvcArea(){
+			
+			var saElement = document.getElementById("svcArea");
+			jQuery.get('svcarea.txt', function(sadata) {
+			   saElement.innerHTML = sadata;
+	   });
+		}     		
+		
+		function setPage(){
+			setCopyrightYear();
+			setPhoneNumber();
+			setEmail();
+			setSvcArea();
+		}
+		
+		window.onload = setPage();
+   
+  </script>
 
 </body>
 
