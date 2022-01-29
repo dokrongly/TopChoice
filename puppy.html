@@ -349,94 +349,30 @@ The reason we can accomplish such fast results, even with very young puppies, is
 
 <script src="js/compressed.js"></script>
 <script src="js/main.js"></script>
-<script>
-     
-      function setCopyrightYear(){
-     
-      var crElement = document.getElementById("copyright_year");
-      jQuery.get('copyright.txt', function(crdata) {
-    crElement.innerHTML = crdata;
-});
-      }
-     
-      function setPhoneNumber(){
-     
-      var PhoneHeader = document.getElementById("phheader");
-      var PhoneFooter = document.getElementById("phfooter");
-      var PhoneNav = document.getElementById("phNav");
-      var PhoneMid = document.getElementById("phMid");
-      var a1 = document.createElement('a');
-      a1.setAttribute('class', 'btn btn-maincolor');
-var a2 = document.createElement('a');
-a2.setAttribute('class', 'btn btn-outline-maincolor');
-    a2.href = 'services.html';
-    a2.innerText = 'More Details';
-   
-      jQuery.get('phone.txt', function(phdata) {
-      let shortPh = phdata.substring(8, 22);
-    PhoneHeader.innerHTML = phdata;
-    PhoneFooter.innerHTML = phdata;
-    PhoneNav.innerHTML = phdata;
-    PhoneMid.innerHTML = "Ready to call? " + phdata;
-    a1.href = shortPh;
-    a1.innerText = shortPh;
-});
+<script src="js/loadOther.js"></script>
 
-var container1 = document.getElementById('layer1');
-    container1.appendChild(a1);
-    container1.appendChild(a2);
-      }
-     
-      function setEmail(){
-     
-      var emailContainer = document.getElementById('emladdr');
-var e = document.createElement('a');
-      jQuery.get('email.txt', function(emldata) {
-    emailContainer.innerHTML = emldata;
-    e.href = emldata;
-    e.innerText = emldata;
-});
-
-emailContainer.appendChild(e);
-      }
-     
-      function setSvcArea(){
-     
-      var saElement = document.getElementById("svcArea");
-      jQuery.get('svcarea.txt', function(sadata) {
-    saElement.innerHTML = sadata;
-});
-      } 
+<script> 
 		
-		function setMethod(){
+  function finishMethod(){
 			
-			var meTitle = document.getElementById("title");
-			var meElement = document.getElementById("methodTop");
-			var meElement2 = document.getElementById("methodTop2");
-			var meElement3 = document.getElementById("methodMid");
-			var meElement4 = document.getElementById("describe3");
-			jQuery.get('method.txt', function(medata) {
-				meTitle.innerHTML = medata + "Method Dog Training";
-				meElement.innerHTML = medata + "Method";
-				meElement2.innerHTML = medata + "Method Dog Training";
-				meElement3.innerHTML = "What is " + medata + "Method?";
-	   	});
-      jQuery.get('description3.txt', function(d3data) {
-				meElement4.innerHTML = d3data;
-	   	});
-		}
+		jQuery.get('method.txt', function(medata) {
+      var meElement3 = document.getElementById("methodMid");
+			meElement3.innerHTML = "What is " + medata + "Method?";
+	  });
+    
+    jQuery.get('description3.txt', function(d3data) {
+      var meElement4 = document.getElementById("describe3");
+			meElement4.innerHTML = d3data;
+	  });
+	}
 		
-		function setPage(){
-			setCopyrightYear();
-			setPhoneNumber();
-			setEmail();
-			setSvcArea();
-			setMethod();
-		}
+	function finishPage(){
+		finishMethod();
+	}
      
-      window.onload = setPage();
+  window.onload = finishPage();
 
-    </script>
+</script>
 
 
 </body>
