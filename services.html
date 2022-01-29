@@ -418,7 +418,7 @@
 	<script src="js/main.js"></script>
 	<script> 
      		
-		function setCopyrightYear(){
+		function setCopyrightYear(){ console.log("starting setCopyrightYear");
 			
 			var crElement = document.getElementById("copyright_year");
 			jQuery.get('copyright.txt', function(crdata) {
@@ -426,7 +426,7 @@
 	   });
 		}
 		
-		function setPhoneNumber(){
+		function setPhoneNumber(){ console.log("starting setPhoneNumber");
 			
 			var PhoneHeader = document.getElementById("phheader");
 			var PhoneFooter = document.getElementById("phfooter");
@@ -452,7 +452,7 @@
 		   container1.appendChild(a2);
 		}
 		
-		function setEmail(){
+		function setEmail(){ console.log("starting setEmail");
 			
 			/* var MessageElement = document.getElementById("svcArea"); */
 			var emailContainer = document.getElementById('emladdr');
@@ -466,7 +466,7 @@
 		   emailContainer.appendChild(e);
 		} 
 		
-		function setSvcArea(){
+		function setSvcArea(){ console.log("starting setSvcArea");
 			
 			var saElement = document.getElementById("svcArea");
 			jQuery.get('svcarea.txt', function(sadata) {
@@ -474,15 +474,15 @@
 	   });
 		} 
 		
-		function setMethod(){
+		function setMethod(){ console.log("starting setMethod");
 			
 			var meTitle = document.getElementById("title");
 			var meElement = document.getElementById("methodTop");
 			var meElement2 = document.getElementById("methodTop2");
 			jQuery.get('method.txt', function(medata) {
-				meTitle.innerHTML = medata + "Method Dog Training";
-				meElement.innerHTML = medata + "Method";
-				meElement2.innerHTML = medata + "Method Dog Training";
+				meTitle.innerHTML = medata + " Method Dog Training";
+				meElement.innerHTML = medata + " Method";
+				meElement2.innerHTML = medata + " Method Dog Training";
 	   		});
 		}
 		
