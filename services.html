@@ -428,15 +428,15 @@
 		
 		function setPhoneNumber(){ console.log("starting setPhoneNumber");
 			
-			var PhoneHeader = document.getElementById("phheader");
-			var PhoneFooter = document.getElementById("phfooter");
-			var PhoneNav = document.getElementById("phNav");
-			
 			jQuery.get('phone.txt', function(phdata) {
-				let shortPh = phdata.substring(8, 22);
-			   PhoneHeader.innerHTML = phdata;
-			   PhoneFooter.innerHTML = phdata;
-			   PhoneNav.innerHTML = phdata;
+
+				var PhoneHeader = document.getElementById("phheader");
+				var PhoneFooter = document.getElementById("phfooter");
+				var PhoneNav = document.getElementById("phNav");
+
+				PhoneHeader.innerHTML = phdata;
+			   	PhoneFooter.innerHTML = phdata;
+			   	PhoneNav.innerHTML = phdata;
 		   });
 
 		}
@@ -476,7 +476,7 @@
 		
 		function setPage(){ console.log("starting to setPage");
 			setCopyrightYear();
-			/* setPhoneNumber(); */
+			setPhoneNumber();
 			setEmail();
 			setSvcArea();
 			setMethod();
