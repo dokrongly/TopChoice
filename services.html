@@ -229,7 +229,7 @@
 										You can get relief from the strain of your new puppy's behaviors - and you can get it now. Even if your puppy is only 8 or 10 weeks old I can help.
 									</p>
 									<a href="puppy.html" class="more">$375<br>more details</a>
-									<br>Ready to call? <span class="more" id="svcph1"></span>
+									<br><span class="more" id="svcph1"></span>
 								</div>
 							</div>
 						</div><!-- .col-* -->
@@ -251,7 +251,7 @@
 										  </font>
 									</p>
 									<a href="inhome.html" class="more">$375<br>more details</a>
-									<br>Ready to call? <span class="more" id="svcph2"></span>
+									<br><span class="more" id="svcph2"></span>
 								</div>
 							</div>
 						</div><!-- .col-* -->
@@ -272,7 +272,7 @@
 										Virtual training is highly effective in solving behavioral problems such as jumping, barking and play biting.
 									</p>
 									<a href="virtual.html" class="more">$295<br> more details</a>
-									<br>Ready to call? <span class="more" id="svcph3"></span>
+									<br><span class="more" id="svcph3"></span>
 								</div>
 							</div>
 						</div><!-- .col-* -->
@@ -417,7 +417,29 @@
 	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/loadOther.js"></script>
-     		
+    
+<script>
+   
+	function finishPhoneNumber(){
+  
+	  jQuery.get('phone.txt', function(phdata) {
+		var svcPh1 = document.getElementById("svcph1");
+		var svcPh2 = document.getElementById("svcph2");
+		var svcPh3 = document.getElementById("svcph3");
+		svcPh1.innerHTML = "Ready to call? " + phdata;
+		svcPh2.innerHTML = "Ready to call? " + phdata;
+		svcPh3.innerHTML = "Ready to call? " + phdata;
+	  });
+  
+	}
+		  
+	function finishPage(){
+		finishPhoneNumber();
+	}
+	   
+	window.onload = finishPage();
+  
+  </script> 		
 
 
 
